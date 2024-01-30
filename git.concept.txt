@@ -1,0 +1,11 @@
+Paso 1
+En este paso tu objetivo es crear un cliente git básico que pueda inicializar un repositorio git vacío.
+Un repositorio git vacío es simplemente el directorio .git con unos pocos archivos en él, estos son:
+
+*HEAD una referencia a la HEAD actual.
+* config : el archivo de configuración del repositorio, hay algunos valores por defecto establecidos en él.
+* description :el archivo de descripción del repositorio - el valor por defecto se define en el código fuente de git
+* hooks :un directorio que contenga los hooks del repositorio
+* info : un directorio que contiene el archivo de exclusión. Lo ignoraremos para este desafío.
+* objects :un directorio, este es el almacén de objetos.
+* refs : un directorio

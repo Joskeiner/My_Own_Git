@@ -8,11 +8,20 @@ try {
   console.error("error:", e.message);
 }
 
+/*
+ * @param {object} args
+ * @returns {void}
+ */
 function RunCli(args) {
   let opts = searchCommands(args);
   if (opts[0] != "gitCJ") {
     throw ErrCommandMissingGitCJ;
   }
   let actionName = opts[1];
-  Route(actionName);
+  if (opts.length < 3) {
+    Route(actionName);
+  } else {
+    let comands = opts[2];
+    Route(actionName, comands);
+  }
 }

@@ -1,0 +1,38 @@
+ comando add 
+ 
+ la suma de comprobacion es un hash de 40 caracteres  este es un hash SHA-1 
+ 
+ asi se va a guardar la informacion o la version del archivo 
+ la sud-carpeta se nombre como con los primeros digitos del shah y el archivo con los 38 caracteres restantes 
+
+
+.git/objects/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4
+
+creacion de comando add 
+
+1) creacion de funcion de para crear objetos blod ( que son basicamenten un archivo con nombre de SHA-1 )
+
+2) creacion de carpeta para guardar los los objetos blod en la estructura de .git/objects/primeros 2 caracteres de SHA-1/ otros 38 caracteres de SHA-1
+
+3) funcion para covertir archivos a blob y blod a archivos 
+
+4) creacion de objetos de tipo tree (se puede crear con de la misma forma que tree) , estos objetos son nodos que dentro tiene objetos blod 
+
+5) funcion que pase los blod y trees al area de preparacion 
+
+
+
+Paso 2
+En este paso tu objetivo es añadir uno o más ficheros al índice.
+
+En efecto, estarás implementando el equivalente del comando hash-object, 
+para obtener el hash de un objeto y añadirlo al índice. Asegúrate de
+leer la sección sobre Almacenamiento de Objetos para entender cómo
+se genera un hash para un objeto.
+
+Una vez que tengas un hash para el objeto que deseas añadir al índice
+quieres implementar el equivalente al comando update-index --add.
+El formato del archivo de índice Git está documentado aquí.
+
+Una vez completado deberías ser capaz de hacer:
+

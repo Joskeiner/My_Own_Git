@@ -8,7 +8,7 @@ try {
   console.error("error:", e.message);
 }
 
-/*
+/**
  * @param {object} args
  * @returns {void}
  */

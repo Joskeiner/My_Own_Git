@@ -1,5 +1,5 @@
-/*
- * @params {object} args
+/**
+ * @param{object} args
  * @returns {[]string} array
  */
 export function searchCommands(args) {
@@ -8,6 +8,10 @@ export function searchCommands(args) {
 
   return array;
 }
+/**
+ * @param {any} thing
+ * @returns {boolean}
+ */
 export function isString(thing) {
   return typeof thing === "string";
 }

@@ -1,5 +1,7 @@
 import * as fs from "fs/promises";
 import { isString } from "../utils/parser.mjs";
+import { ErrRepository } from "../utils/error.mjs";
+import * as fsAsync from "fs";
 import path from "path";
 
 /**
@@ -12,7 +14,7 @@ export async function readFiles(cwd) {
     return files;
   } catch (err) {
     console.error("err:", err.message);
-    return "";
+    return [];
   }
 }
 // createfile
@@ -67,5 +69,32 @@ async function existFile(path) {
     return true;
   } catch (err) {
     return false;
+  }
+}
+
+export async function existRepo(cwd) {
+  try {
+    const files = await readFiles(cwd);
+    return files.includes(".git");
+  } catch (err) {
+    throw ErrRepository;
+  }
+}
+
+export async function lsAdd(route) {
+  let exist = existFile(route);
+  if (!exist) {
+    return [];
+  } else if (fsAsync.statSync(route).isFile()) {
+    return [route];
+  } else if (fsAsync.statSync(route).isDirectory()) {
+    let addFiles = [];
+    let files = await readFiles(route);
+    files.forEach((f) => {
+      let basePath = path.join(route, f);
+      addFiles.push(basePath);
+    });
+    console.log(addFiles);
+    return addFiles;
   }
 }

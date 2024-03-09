@@ -21,7 +21,7 @@ function RunCli(args) {
   if (opts.length < 3) {
     Route(actionName);
   } else {
-    let comands = opts[2];
-    Route(actionName, comands);
+    let complement = opts[2];
+    Route(actionName, complement);
   }
 }
